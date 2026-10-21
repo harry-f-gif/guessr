@@ -37,3 +37,18 @@ if st.button("Submit Guess", key="chicken_btn"):
         st.write("Too high!")#type:ignore
     elif user_guess < ACTUAL_Value:
         st.write("Too low!")#type:ignore
+st.info("How many goals were scored at the 2026 world cup?")
+ACTUAL_Value = 308
+user_guess = st.number_input("Enter your guess:", key="goal_input")
+if st.button("Submit Guess", key="goal_btn"):
+    difference = abs(user_guess - ACTUAL_Value)
+    x = difference / ACTUAL_Value
+    raw_score = 100 * math.exp(-4 * x)
+    final_score = max(0, round(raw_score))
+    st.write(f"Your score: **{final_score}/100**")
+    if user_guess == ACTUAL_Value:
+        st.write("That is correct!")
+    elif user_guess > ACTUAL_Value:
+        st.write("Too high!")#type:ignore
+    elif user_guess < ACTUAL_Value:
+        st.write("Too low!")#type:ignore
