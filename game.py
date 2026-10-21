@@ -1,6 +1,6 @@
 import streamlit as st # type: ignore
 import math
-if 'round' not in st.session_state:
+if 'score_q1' not in st.session_state:
     st.session_state.score_q1 = 0
     st.session_state.score_q2 = 0
     st.session_state.score_q3 = 0
