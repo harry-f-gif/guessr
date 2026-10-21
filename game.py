@@ -44,7 +44,6 @@ if st.button("Submit Guess", key="chicken_btn"):
 st.divider()
 st.info("How many goals were scored at the 2026 world cup?")
 ACTUAL_Value_3 = 308
-disabled_status = st.session_state.tries_q3 >= 3
 user_guess_3 = st.number_input("Enter your guess:", key="goal_input")
 if st.button("Submit Guess", key="goal_btn"):
     difference = abs(user_guess_3 - ACTUAL_Value)
@@ -59,7 +58,7 @@ if st.button("Submit Guess", key="goal_btn"):
         st.write(f"Too high! The correct answer was 308.")#type:ignore
     elif user_guess_3 < ACTUAL_Value:
         st.write(f"Too low! The correct answer was 308.")#type:ignore
-        
+
 st.divider()
 grand_total = st.session_state.score_q1 + st.session_state.score_q2 + st.session_state.score_q3
 st.header("Final Result")
