@@ -13,7 +13,7 @@ user_guess = st.number_input("Enter your guess in hours:", key="cheetah_input")
 if st.button("Submit Guess", key="cheetah_btn"):
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
-    raw_score = 100 * math.exp(-4 * x)
+    raw_score = -(25) * x +100
     final_score = max(0, round(raw_score))
     st.write(f"Your score: **{final_score}/100**")
     if user_guess == ACTUAL_Value:
