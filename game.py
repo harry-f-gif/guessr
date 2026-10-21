@@ -21,6 +21,7 @@ if st.button("Submit Guess", key="cheetah_btn", disabled=disabled_status):
     x = difference / ACTUAL_Value
     raw_score = -(25) * x +100
     final_score = max(0, round(raw_score))
+    st.session_state.score_q1 = final_score
     st.write(f"Your score: **{final_score}/100**")
     if user_guess == ACTUAL_Value:
         st.write("That is correct!")
@@ -42,6 +43,7 @@ if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
+    st.session_state.score_q2 = final_score
     st.write(f"Your score: **{final_score}/100**")
     if user_guess == ACTUAL_Value:
         st.write("That is correct!")
@@ -63,6 +65,7 @@ if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
+    st.session_state.score_q3 = final_score
     st.write(f"Your score: **{final_score}/100**")
     if user_guess == ACTUAL_Value:
         st.write("That is correct!")
@@ -73,3 +76,8 @@ if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
     elif user_guess < ACTUAL_Value:
         st.write("Too low!")#type:ignore
 st.write(f"Tries used: {st.session_state.tries_q3}/3")
+
+st.divider()
+grand_total = st.session_state.score_q1 + st.session_state.score_q2 + st.session_state.score_q3
+st.header("Final Result")
+st.subheader(f"Your Total Score: **{grand_total} / 300**")
