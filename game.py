@@ -11,7 +11,6 @@ st.info("How long would it take a cheetah that is running at a constant top spee
 ACTUAL_Value = 55
 user_guess_1 = st.number_input("Enter your guess in hours:", key="cheetah_input")
 if st.button("Submit Guess", key="cheetah_btn"):
-    st.session_state.tries_q1 += 1
     difference = abs(user_guess_1 - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = -(25) * x +100
