@@ -28,7 +28,7 @@ user_guess = st.number_input("Enter your guess:")
 if st.button("Submit guess"):
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
-    raw_score = -(25) * x + 100
+    raw_score = -(25) * x + 10
     final_score = max(0, round(raw_score))
     st.write(f"Your score: **{final_score}/100**")
     if user_guess == ACTUAL_Value:
