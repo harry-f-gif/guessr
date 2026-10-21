@@ -28,7 +28,7 @@ if st.button("Submit Guess", key="cheetah_btn", disabled=disabled_status):
     raw_score = -(25) * x +100
     final_score = max(0, round(raw_score))
     st.session_state.score_q1 = final_score
-    msg = f"Your score: **{final_score}/100**\n\n"
+    msg = f"Your score: {final_score}/100**\n\n"
     if user_guess == ACTUAL_Value:
         msg += "That is correct!"
     elif st.session_state.tries_q1 >= 3:
@@ -53,7 +53,7 @@ if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
     st.session_state.score_q2 = final_score
-    msg = f"Your score: **{final_score}/100**\n\n"
+    msg = f"Your score: {final_score}/100**\n\n"
     if user_guess == ACTUAL_Value:
         msg +="That is correct!"
     elif st.session_state.tries_q2 >= 3:
@@ -78,7 +78,7 @@ if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
     st.session_state.score_q3 = final_score
-    msg = f"Your score: **{final_score}/100**\n\n"
+    msg = f"Your score: {final_score}/100**\n\n"
     if user_guess == ACTUAL_Value:
         msg += "That is correct!"
     elif st.session_state.tries_q3 >= 3:
