@@ -1,5 +1,5 @@
 import streamlit as st # type: ignore
-if round not in st.session_state:
+if 'round' not in st.session_state:
     st.session_state.round = 1
     st.session_state.total_score = 0
     st.session_state.tries_q1 = 0
