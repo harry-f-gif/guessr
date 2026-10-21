@@ -24,7 +24,7 @@ if st.button("Submit Guess"):
         st.write("Too low!")#type:ignore
 st.info("How many chickens would it take to equal to the weight of a T-rex?")
 ACTUAL_Value = 2910
-user_guess = st.number_input("Enter your guess in kilograms:")
+user_guess = st.number_input("Enter your guess:")
 if st.button("Submit guess"):
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
