@@ -1,5 +1,8 @@
 import streamlit as st # type: ignore
 if 'round' not in st.session_state:
+    st.session_state.feedback_q1 = ""
+    st.session_state.feedback_q2 = ""
+    st.session_state.feedback_q3 = ""
     st.session_state.round = 1
     st.session_state.total_score = 0
     st.session_state.tries_q1 = 0
@@ -25,16 +28,19 @@ if st.button("Submit Guess", key="cheetah_btn", disabled=disabled_status):
     raw_score = -(25) * x +100
     final_score = max(0, round(raw_score))
     st.session_state.score_q1 = final_score
-    st.write(f"Your score: **{final_score}/100**")
+    msg = f"Your score: **{final_score}/100**\n\n"
     if user_guess == ACTUAL_Value:
-        st.write("That is correct!")
+        msg += "That is correct!"
     elif st.session_state.tries_q1 >= 3:
-        st.write("Out of tries! The correct answer was 55.")
+        msg += f"Out of tries! The correct answer was 55."
     elif user_guess > ACTUAL_Value:
-        st.write("Too high!")#type:ignore
+        msg += "Too high!"#type:ignore
     elif user_guess < ACTUAL_Value:
-        st.write("Too low!")#type:ignore
+        msg += "Too low!"#type:ignore
+    st.session_state.feedback_q1 = msg
     st.rerun()
+if st.session_state.feedback_q1:
+    st.write(st.session_state.feedback_q1)
 st.write(f"Tries used: {st.session_state.tries_q1}/3")
 st.info("How many chickens would it take to equal the weight of a T-rex?")
 ACTUAL_Value = 2910
@@ -47,16 +53,19 @@ if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
     st.session_state.score_q2 = final_score
-    st.write(f"Your score: **{final_score}/100**")
+    msg = f"Your score: **{final_score}/100**\n\n"
     if user_guess == ACTUAL_Value:
-        st.write("That is correct!")
+        msg +="That is correct!"
     elif st.session_state.tries_q2 >= 3:
-        st.write("Out of tries! The correct answer was 2910.")
+        msg += f"Out of tries! The correct answer was 2910."
     elif user_guess > ACTUAL_Value:
-        st.write("Too high!")#type:ignore
+        msg += "Too high!"#type:ignore
     elif user_guess < ACTUAL_Value:
-        st.write("Too low!")#type:ignore
+        msg += "Too low!"#type:ignore
+    st.session_state.feedback_q2 = msg
     st.rerun()
+if st.session_state.feedback_q2:
+    st.write(st.session_state.feedback_q2)
 st.write(f"Tries used: {st.session_state.tries_q2}/3")
 st.info("How many goals were scored at the 2026 world cup?")
 ACTUAL_Value = 308
@@ -69,16 +78,19 @@ if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
     st.session_state.score_q3 = final_score
-    st.write(f"Your score: **{final_score}/100**")
+    msg = f"Your score: **{final_score}/100**\n\n"
     if user_guess == ACTUAL_Value:
-        st.write("That is correct!")
+        msg += "That is correct!"
     elif st.session_state.tries_q3 >= 3:
-        st.write("Out of tries! The correct answer was 308.")
+        msg += f"Out of tries! The correct answer was 308."
     elif user_guess > ACTUAL_Value:
-        st.write("Too high!")#type:ignore
+        msg += "Too high!"#type:ignore
     elif user_guess < ACTUAL_Value:
-        st.write("Too low!")#type:ignore
+        msg += "Too low!"#type:ignore
+    st.session_state.feedback_q3 = msg
     st.rerun()
+if st.session_state.feedback_q3:
+    st.write(st.session_state.feedback_q1)
 st.write(f"Tries used: {st.session_state.tries_q3}/3")
 
 st.divider()
