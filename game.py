@@ -2,6 +2,9 @@ import streamlit as st # type: ignore
 if round not in st.session_state:
     st.session_state.round = 1
     st.session_state.total_score = 0
+    st.session_state.tries_q1 = 0
+    st.session_state.tries_q2 = 0
+    st.session_state.tries_q3 = 0
     current_round = st.session_state.round
 import math
 st.title("guessr")
