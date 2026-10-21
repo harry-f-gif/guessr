@@ -90,7 +90,7 @@ if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
     st.session_state.feedback_q3 = msg
     st.rerun()
 if st.session_state.feedback_q3:
-    st.write(st.session_state.feedback_q1)
+    st.write(st.session_state.feedback_q3)
 st.write(f"Tries used: {st.session_state.tries_q3}/3")
 
 st.divider()
