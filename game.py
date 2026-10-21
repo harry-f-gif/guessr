@@ -1,98 +1,65 @@
 import streamlit as st # type: ignore
+import math
 if 'round' not in st.session_state:
-    st.session_state.feedback_q1 = ""
-    st.session_state.feedback_q2 = ""
-    st.session_state.feedback_q3 = ""
-    st.session_state.round = 1
-    st.session_state.total_score = 0
-    st.session_state.tries_q1 = 0
-    st.session_state.tries_q2 = 0
-    st.session_state.tries_q3 = 0
-
     st.session_state.score_q1 = 0
     st.session_state.score_q2 = 0
     st.session_state.score_q3 = 0
-    current_round = st.session_state.round
-import math
 st.title("guessr")
 st.write("Can you guess the right scale?")
 st.subheader("Daily guessr")
 st.info("How long would it take a cheetah that is running at a constant top speed to run the length of the river Nile?")
 ACTUAL_Value = 55
-disabled_status = st.session_state.tries_q1 >= 3
-user_guess = st.number_input("Enter your guess in hours:", key="cheetah_input", disabled=disabled_status)
-if st.button("Submit Guess", key="cheetah_btn", disabled=disabled_status):
+user_guess_1 = st.number_input("Enter your guess in hours:", key="cheetah_input")
+if st.button("Submit Guess", key="cheetah_btn"):
     st.session_state.tries_q1 += 1
-    difference = abs(user_guess - ACTUAL_Value)
+    difference = abs(user_guess_1 - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = -(25) * x +100
     final_score = max(0, round(raw_score))
     st.session_state.score_q1 = final_score
-    msg = f"Your score: {final_score}/100**\n\n"
-    if user_guess == ACTUAL_Value:
-        msg += "That is correct!"
-    elif st.session_state.tries_q1 >= 3:
-        msg += f"Out of tries! The correct answer was 55."
-    elif user_guess > ACTUAL_Value:
-        msg += "Too high!"#type:ignore
-    elif user_guess < ACTUAL_Value:
-        msg += "Too low!"#type:ignore
-    st.session_state.feedback_q1 = msg
-    st.rerun()
-if st.session_state.feedback_q1:
-    st.write(st.session_state.feedback_q1)
-st.write(f"Tries used: {st.session_state.tries_q1}/3")
+    st.write(f"Your score: {final_score}/100")
+    if user_guess_1 == ACTUAL_Value:
+        st.success("That is correct!")
+    elif user_guess_1 > ACTUAL_Value:
+        st.write(f"Too high! The correct answer was 55.")#type:ignore
+    elif user_guess_1 < ACTUAL_Value:
+        st.write(f"Too low! The correct answer was 55.")#type:ignore
+st.divider()
 st.info("How many chickens would it take to equal the weight of a T-rex?")
 ACTUAL_Value = 2910
-disabled_status = st.session_state.tries_q2 >= 3
-user_guess = st.number_input("Enter your guess:", key="chicken_input", disabled=disabled_status)
-if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
-    st.session_state.tries_q2 += 1
-    difference = abs(user_guess - ACTUAL_Value)
+user_guess_2 = st.number_input("Enter your guess:", key="chicken_input")
+if st.button("Submit Guess", key="chicken_btn"):
+    difference = abs(user_guess_2 - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
     st.session_state.score_q2 = final_score
-    msg = f"Your score: {final_score}/100**\n\n"
-    if user_guess == ACTUAL_Value:
-        msg +="That is correct!"
-    elif st.session_state.tries_q2 >= 3:
-        msg += f"Out of tries! The correct answer was 2910."
-    elif user_guess > ACTUAL_Value:
-        msg += "Too high!"#type:ignore
-    elif user_guess < ACTUAL_Value:
-        msg += "Too low!"#type:ignore
-    st.session_state.feedback_q2 = msg
-    st.rerun()
-if st.session_state.feedback_q2:
-    st.write(st.session_state.feedback_q2)
-st.write(f"Tries used: {st.session_state.tries_q3}/3")
+    st.write(f"Your score: {final_score}/100")
+    if user_guess_2 == ACTUAL_Value:
+        st.success("That is correct!")
+    elif user_guess_2 > ACTUAL_Value:
+        st.write(f"Too high! The correct answer was 2910.")#type:ignore
+    elif user_guess_2 < ACTUAL_Value:
+        st.write(f"Too low! The correct answer was 2910.")#type:ignore
+st.divider()
 st.info("How many goals were scored at the 2026 world cup?")
-ACTUAL_Value = 308
+ACTUAL_Value_3 = 308
 disabled_status = st.session_state.tries_q3 >= 3
-user_guess = st.number_input("Enter your guess:", key="goal_input", disabled=disabled_status)
-if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
-    st.session_state.tries_q3 += 1
-    difference = abs(user_guess - ACTUAL_Value)
+user_guess_3 = st.number_input("Enter your guess:", key="goal_input")
+if st.button("Submit Guess", key="goal_btn"):
+    difference = abs(user_guess_3 - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
     st.session_state.score_q3 = final_score
-    msg = f"Your score: {final_score}/100**\n\n"
-    if user_guess == ACTUAL_Value:
-        msg += "That is correct!"
-    elif st.session_state.tries_q3 >= 3:
-        msg += f"Out of tries! The correct answer was 308."
-    elif user_guess > ACTUAL_Value:
-        msg += "Too high!"#type:ignore
-    elif user_guess < ACTUAL_Value:
-        msg += "Too low!"#type:ignore
-    st.session_state.feedback_q3 = msg
-    st.rerun()
-if st.session_state.feedback_q3:
-    st.write(st.session_state.feedback_q3)
-st.write(f"Tries used: {st.session_state.tries_q3}/3")
-
+    st.write(f"Your score: {final_score}/100")
+    if user_guess_3 == ACTUAL_Value_3:
+        st.success("That is correct!")
+    elif user_guess_3 > ACTUAL_Value:
+        st.write(f"Too high! The correct answer was 308.")#type:ignore
+    elif user_guess_3 < ACTUAL_Value:
+        st.write(f"Too low! The correct answer was 308.")#type:ignore
+        
 st.divider()
 grand_total = st.session_state.score_q1 + st.session_state.score_q2 + st.session_state.score_q3
 st.header("Final Result")
