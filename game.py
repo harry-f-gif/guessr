@@ -35,7 +35,7 @@ ACTUAL_Value = 2910
 disabled_status = st.session_state.tries_q2 >= 3
 user_guess = st.number_input("Enter your guess:", key="chicken_input", disabled=disabled_status)
 if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
-    st.session_state.tries_q2 += 2
+    st.session_state.tries_q2 += 1
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
@@ -52,10 +52,10 @@ if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
 st.write(f"Tries used: {st.session_state.tries_q2}/3")
 st.info("How many goals were scored at the 2026 world cup?")
 ACTUAL_Value = 308
-disabled_status = st.session_state.tries_q2 >= 3
+disabled_status = st.session_state.tries_q3 >= 3
 user_guess = st.number_input("Enter your guess:", key="goal_input", disabled=disabled_status)
 if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
-    st.session_state.tries_q3 += 3
+    st.session_state.tries_q3 += 1
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
