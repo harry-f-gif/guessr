@@ -9,11 +9,11 @@ st.write("Can you guess the right scale?")
 st.subheader("Daily guessr")
 st.info("How long would it take a cheetah that is running at a constant top speed to run the length of the river Nile?")
 ACTUAL_Value = 55
-user_guess = st.number_input("Enter your guess in hours:")
-if st.button("Submit Guess"):
+user_guess = st.number_input("Enter your guess in hours:", key="cheetah_input")
+if st.button("Submit Guess", key="cheetah_btn"):
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
-    raw_score = -(25) * x + 100
+    raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
     st.write(f"Your score: **{final_score}/100**")
     if user_guess == ACTUAL_Value:
