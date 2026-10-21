@@ -45,8 +45,8 @@ st.info("How many goals were scored at the 2026 world cup?")
 ACTUAL_Value_3 = 308
 user_guess_3 = st.number_input("Enter your guess:", key="goal_input")
 if st.button("Submit Guess", key="goal_btn"):
-    difference = abs(user_guess_3 - ACTUAL_Value)
-    x = difference / ACTUAL_Value
+    difference = abs(user_guess_3 - ACTUAL_Value_3)
+    x = difference / ACTUAL_Value_3
     raw_score = 100 * math.exp(-4 * x)
     final_score = max(0, round(raw_score))
     st.session_state.score_q3 = final_score
