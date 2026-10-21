@@ -1,4 +1,4 @@
-st.write("Can you guess the right scale?")import streamlit as st # type: ignore
+import streamlit as st # type: ignore
 if 'round' not in st.session_state:
     st.session_state.round = 1
     st.session_state.total_score = 0
@@ -35,7 +35,7 @@ if st.button("Submit Guess", key="cheetah_btn", disabled=disabled_status):
     elif user_guess < ACTUAL_Value:
         st.write("Too low!")#type:ignore
 st.write(f"Tries used: {st.session_state.tries_q1}/3")
-st.rerun()
+    st.rerun()
 st.info("How many chickens would it take to equal the weight of a T-rex?")
 ACTUAL_Value = 2910
 disabled_status = st.session_state.tries_q2 >= 3
@@ -57,14 +57,13 @@ if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
     elif user_guess < ACTUAL_Value:
         st.write("Too low!")#type:ignore
 st.write(f"Tries used: {st.session_state.tries_q2}/3")
-st.rerun()
+    st.rerun()
 st.info("How many goals were scored at the 2026 world cup?")
 ACTUAL_Value = 308
 disabled_status = st.session_state.tries_q3 >= 3
 user_guess = st.number_input("Enter your guess:", key="goal_input", disabled=disabled_status)
 if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
     st.session_state.tries_q3 += 1
-    st.rerun()
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
@@ -80,7 +79,7 @@ if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
     elif user_guess < ACTUAL_Value:
         st.write("Too low!")#type:ignore
 st.write(f"Tries used: {st.session_state.tries_q3}/3")
-st.rerun()
+    st.rerun()
 
 st.divider()
 grand_total = st.session_state.score_q1 + st.session_state.score_q2 + st.session_state.score_q3
