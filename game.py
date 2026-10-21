@@ -16,6 +16,7 @@ disabled_status = st.session_state.tries_q1 >= 3
 user_guess = st.number_input("Enter your guess in hours:", key="cheetah_input", disabled=disabled_status)
 if st.button("Submit Guess", key="cheetah_btn", disabled=disabled_status):
     st.session_state.tries_q1 += 1
+    st.rerun()
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = -(25) * x +100
@@ -36,6 +37,7 @@ disabled_status = st.session_state.tries_q2 >= 3
 user_guess = st.number_input("Enter your guess:", key="chicken_input", disabled=disabled_status)
 if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
     st.session_state.tries_q2 += 1
+    st.rerun()
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
@@ -56,6 +58,7 @@ disabled_status = st.session_state.tries_q3 >= 3
 user_guess = st.number_input("Enter your guess:", key="goal_input", disabled=disabled_status)
 if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
     st.session_state.tries_q3 += 1
+    st.rerun()
     difference = abs(user_guess - ACTUAL_Value)
     x = difference / ACTUAL_Value
     raw_score = 100 * math.exp(-4 * x)
