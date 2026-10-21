@@ -34,8 +34,8 @@ if st.button("Submit Guess", key="cheetah_btn", disabled=disabled_status):
         st.write("Too high!")#type:ignore
     elif user_guess < ACTUAL_Value:
         st.write("Too low!")#type:ignore
+        st.rerun()
 st.write(f"Tries used: {st.session_state.tries_q1}/3")
-    st.rerun()
 st.info("How many chickens would it take to equal the weight of a T-rex?")
 ACTUAL_Value = 2910
 disabled_status = st.session_state.tries_q2 >= 3
@@ -56,8 +56,8 @@ if st.button("Submit Guess", key="chicken_btn", disabled=disabled_status):
         st.write("Too high!")#type:ignore
     elif user_guess < ACTUAL_Value:
         st.write("Too low!")#type:ignore
+        st.rerun()
 st.write(f"Tries used: {st.session_state.tries_q2}/3")
-    st.rerun()
 st.info("How many goals were scored at the 2026 world cup?")
 ACTUAL_Value = 308
 disabled_status = st.session_state.tries_q3 >= 3
@@ -78,8 +78,8 @@ if st.button("Submit Guess", key="goal_btn", disabled=disabled_status):
         st.write("Too high!")#type:ignore
     elif user_guess < ACTUAL_Value:
         st.write("Too low!")#type:ignore
+        st.rerun()
 st.write(f"Tries used: {st.session_state.tries_q3}/3")
-    st.rerun()
 
 st.divider()
 grand_total = st.session_state.score_q1 + st.session_state.score_q2 + st.session_state.score_q3
