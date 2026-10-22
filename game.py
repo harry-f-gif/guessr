@@ -43,6 +43,8 @@ if st.button("Submit Guess", key="pencil_btn"):
     raw_score = 100 * math.exp(-4 * x)
     st.session_state.score_q2 = max(0, round(raw_score))
     st.session_state.q2_submitted = True
+
+if st.session_state.q2_submitted:
     st.write(f"Your score: {st.session_state.score_q2}/100")
     if user_guess_2 == ACTUAL_Value:
         st.success("That is correct!")
@@ -63,12 +65,14 @@ if st.button("Submit Guess", key="three-pointer_btn"):
     raw_score = 100 * math.exp(-4 * x)
     st.session_state.score_q3 = max(0, round(raw_score))
     st.session_state.q3_submitted = True
-    st.write(f"Your score: {st.session_state.score_q2}/100")
+
+if st.session_state.q3_submitted:
+    st.write(f"Your score: {st.session_state.score_q3}/100")
     if user_guess_3 == ACTUAL_Value_3:
         st.success("That is correct!")
-    elif user_guess_3 > ACTUAL_Value:
+    elif user_guess_3 > ACTUAL_Value_3:
         st.write(f"Too high! The correct answer was 2636.")#type:ignore
-    elif user_guess_3 < ACTUAL_Value:
+    elif user_guess_3 < ACTUAL_Value_3:
         st.write(f"Too low! The correct answer was 2636.")#type:ignore
 
 st.divider()
