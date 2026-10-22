@@ -21,7 +21,7 @@ if st.button("Submit Guess", key="people_btn"):
     x = difference / ACTUAL_Value
     raw_score = -(25) * x +100
     st.session_state.score_q1 = max(0, round(raw_score))
-    st.session_state.score_q1_submitted = True
+    st.session_state.q1_submitted = True
 if st.session_state.q1_submitted:
     st.write(f"Your score: {st.session_state.score_q1}/100")
     if user_guess_1 == ACTUAL_Value:
