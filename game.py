@@ -13,7 +13,7 @@ st.write("Can you guess the right scale?")
 st.subheader("Daily guessr")
 
 st.info("How many people on Earth were born on February the 29th?")
-ACTUAL_Value = 4,500,000
+ACTUAL_Value = 4500000
 user_guess_1 = st.number_input("Enter your guess:", key="people_input")
 
 if st.button("Submit Guess", key="people_btn"):
@@ -27,9 +27,9 @@ if st.session_state.q1_submitted:
     if user_guess_1 == ACTUAL_Value:
         st.success("That is correct!")
     elif user_guess_1 > ACTUAL_Value:
-        st.write(f"Too high! The correct answer was 4,500,000.")#type:ignore
+        st.write(f"Too high! The correct answer was 4500000.")#type:ignore
     elif user_guess_1 < ACTUAL_Value:
-        st.write(f"Too low! The correct answer was 4,500,000.")#type:ignore
+        st.write(f"Too low! The correct answer was 4500000.")#type:ignore
 
 st.divider()
 
